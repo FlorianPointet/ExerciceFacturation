@@ -1,0 +1,9 @@
+C:\Users\point\source\repos\ExoFacturation\ExoFacturation\Shared\bin\Debug\netstandard2.1\ExoFacturation.Shared.deps.json
+C:\Users\point\source\repos\ExoFacturation\ExoFacturation\Shared\bin\Debug\netstandard2.1\ExoFacturation.Shared.dll
+C:\Users\point\source\repos\ExoFacturation\ExoFacturation\Shared\bin\Debug\netstandard2.1\ExoFacturation.Shared.pdb
+C:\Users\point\source\repos\ExoFacturation\ExoFacturation\Shared\obj\Debug\netstandard2.1\ExoFacturation.Shared.csprojAssemblyReference.cache
+C:\Users\point\source\repos\ExoFacturation\ExoFacturation\Shared\obj\Debug\netstandard2.1\ExoFacturation.Shared.AssemblyInfoInputs.cache
+C:\Users\point\source\repos\ExoFacturation\ExoFacturation\Shared\obj\Debug\netstandard2.1\ExoFacturation.Shared.AssemblyInfo.cs
+C:\Users\point\source\repos\ExoFacturation\ExoFacturation\Shared\obj\Debug\netstandard2.1\ExoFacturation.Shared.csproj.CoreCompileInputs.cache
+C:\Users\point\source\repos\ExoFacturation\ExoFacturation\Shared\obj\Debug\netstandard2.1\ExoFacturation.Shared.dll
+C:\Users\point\source\repos\ExoFacturation\ExoFacturation\Shared\obj\Debug\netstandard2.1\ExoFacturation.Shared.pdb

@@ -1,0 +1,77 @@
+﻿@page "/facturation"
+@inject IBusinessData data
+@using ExoFacturation.Shared
+
+<h1>Tableau des Factures</h1>
+
+@if (factures == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="tableau">
+        <tr>
+            <td>Nom du client</td>
+            <td>Numero de client</td>
+            <td>Date reglement</td>
+            <td>Date emission</td>
+            <td>Montant à payé</td>
+            <td>Reste à payer</td>
+        </tr>
+
+        @foreach (var facture in factures)
+        {
+            <tr>
+                <td>@facture.NomClient</td>
+                <td>@facture.Numero</td>
+                <td>@facture.EmissionDate.ToString("dd/MM/yyyy")</td>
+                @if (facture.ReglementeDate != default(DateTime))
+                {
+                    <td>@facture.ReglementeDate.ToString("dd/MM/yyyy")</td> 
+                }else
+                {
+                    <td>Reste à payer.</td>
+                }
+                <td>@facture.APayer €</td>
+                <td>@facture.Paye €</td>
+            </tr>
+        }
+    </table>
+
+    <p>Pour le : @DateTime.Now.Month / @DateTime.Now.Year</p> calculerTotal();
+    <p>Total reglé : @totalRegle €</p>
+    <p>Total dû : @total €</p>
+    <p>Différence reglé / dû : @(totalRegle - total) €</p>}
+}
+
+
+@code
+{ 
+    static BusinessData facture1 = new BusinessData("Jean", 35.00);
+    static BusinessData facture2 = new BusinessData("Bastien", 300.00, DateTime.Now.AddDays(1), 250.00);
+    static BusinessData facture3 = new BusinessData("Benjamin", 15.00, DateTime.Now.AddDays(2), 15.00);
+    static BusinessData facture4 = new BusinessData("Théo", 1000.00, DateTime.Now.AddDays(3), 550.00);
+    static BusinessData facture5 = new BusinessData("Loïc", 700.00, DateTime.Now.AddDays(4), 700.00);
+
+
+    private BusinessData[] factures = new BusinessData[] { facture1, facture2, facture3, facture4, facture5 };
+    private double totalRegle = 0;
+    private double total = 0;
+
+    public void calculerTotal()
+    {
+        foreach (var facture in factures)
+        {
+            if (facture.EmissionDate.Month == DateTime.Now.Month && facture.EmissionDate.Year == DateTime.Now.Year)
+            {
+                total += facture.APayer;
+            }
+
+            if (facture.ReglementeDate.Month == DateTime.Now.Month && facture.ReglementeDate.Year == DateTime.Now.Year)
+            {
+                totalRegle += facture.Paye;
+            }
+        }
+    } 
+}
